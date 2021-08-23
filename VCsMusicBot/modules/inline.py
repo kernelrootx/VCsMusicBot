@@ -13,7 +13,7 @@ async def search(client, query):
         await client.answer_inline_query(
             query.id,
             results=answers,
-            switch_pm_text=("Search a YouTube Videos"),
+            switch_pm_text=("YouTube Videosu Ara"),
             switch_pm_parameter="help",
             cache_time=0
         )
@@ -45,7 +45,7 @@ async def search(client, query):
             await query.answer(
                 results=answers,
                 cache_time=0,
-                switch_pm_text=("Nothing found"),
+                switch_pm_text=("Hiçbir Şey Bulunamadı"),
                 switch_pm_parameter="",
             )
 
