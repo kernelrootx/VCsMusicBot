@@ -12,12 +12,12 @@ from pyrogram import Client as pbot
 # Lel, Didn't Get Time To Make New One So Used Plugin Made br @mrconfused and @sandy1709 dont edit credits
 
 
-@pbot.on_message(filters.command(["lyric", "lyrics"]))
+@pbot.on_message(filters.command(["şarkısözü", "lyrics"]))
 async def _(client, message):
-    lel = await message.reply("Searching For Lyrics.....")
+    lel = await message.reply("Şarkı Sözü Aranıyor.....")
     query = message.text
     if not query:
-        await lel.edit("`What I am Supposed to find `")
+        await lel.edit("`Ne Bulmam Gerekiyor`")
         return
 
     song = ""
@@ -26,9 +26,9 @@ async def _(client, message):
         if song.lyrics:
             reply = song.format()
         else:
-            reply = "Couldn't find any lyrics for that song! try with artist name along with song if still doesnt work try `.glyrics`"
+            reply = "Şarkı Sözlerini Bulamadım. Sanatçı İsmiyle Beraber Aramayı Dene Veya Şu Komutu Dene 👉 `.glyrics`"
     else:
-        reply = "lyrics not found! try with artist name along with song if still doesnt work try `.glyrics`"
+        reply = "Şarkı Sözlerini Bulamadım. Sanatçı İsmiyle Beraber Aramayı Dene Veya Şu Komutu Dene 👉 `.glyrics`"
 
     if len(reply) > 4095:
         with io.BytesIO(str.encode(reply)) as out_file:
