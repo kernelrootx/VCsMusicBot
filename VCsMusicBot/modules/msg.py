@@ -1,7 +1,7 @@
 import os
 from VCsMusicBot.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**Merhaba 👋 [{}](tg://user?id={})!**\n\n🤖 Zenciler Federasyonu'nun Müzik Botudur.\n\n✅ Kullanım Kılavuzu İçin /yardım yazın."
+      START_MSG = "**Merhaba 👋 [{}](tg://user?id={})!**\n\n🤖 Zenciler Federasyonu'nun Müzik Botudur.\n\n✅ Kullanım Kılavuzu İçin /help yazın."
       HELP_MSG = [
         ".",
 f"""
