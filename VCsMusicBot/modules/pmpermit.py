@@ -17,7 +17,7 @@ async def pmPermit(client: USER, message: Message):
                 return
             await USER.send_message(
                 message.chat.id,
-                "Hi there, This is a music assistant service of @VCsMusicBot.\n\n ❗️ Rules:\n   - No chatting allowed\n   - No spam allowed \n\n 👉 **SEND GROUP INVITE LINK OR USERNAME IF USERBOT CAN'T JOIN YOUR GROUP.**\n\n ⚠️ Disclamer: If you are sending a message here it means admin from @zautesChat will see your message and join chat.\n    - Don't add this user to secret groups.\n   - Don't Share private info here.\n\n**Feel Free to Contact Us @ZauteBot.\n\nDeploy your own Bot from** https://github.com/LushaiMusic/VCsMusicBot",
+                "Merhaba, Ben @Zencilermuzikbot'un Asistanıyım.\n\n ❗️ Kurallar:\n   - Bu Hesap Sohbet İçin Değil\n   - Spam Yasak \n\n 👉 **GRUP LİNKİNİ VEYA GRUP KULLANICI ADINI AT.**\n\n ⚠️ Uyarı: Attığın Her Mesajı Botun Sahibi @ex0rc1st0 Görüyor.\n    - Gizli Gruplara Girmez.\n   - Gizli Grup Linki Atmayın.\n\n**İletişim için @ex0rc1st0.\n\nGrubumuz** https://t.me/zenciler_federasyonu",
             )
             return
 
@@ -31,11 +31,11 @@ async def bye(client: Client, message: Message):
         queryy = text[1]
         if queryy == "on":
             PMSET = True
-            await message.reply_text("Pmpermit turned on")
+            await message.reply_text("Pmpermit Açık")
             return
         if queryy == "off":
             PMSET = None
-            await message.reply_text("Pmpermit turned off")
+            await message.reply_text("Pmpermit Kapalı")
             return
 
 @USER.on_message(filters.text & filters.private & filters.me)        
@@ -43,7 +43,7 @@ async def autopmPermiat(client: USER, message: Message):
     chat_id = message.chat.id
     if not chat_id in pchats:
         pchats.append(chat_id)
-        await message.reply_text("Approoved to PM due to outgoing messages")
+        await message.reply_text("PM'ye İzin Veriliyor")
         return
     message.continue_propagation()    
     
@@ -52,7 +52,7 @@ async def pmPermiat(client: USER, message: Message):
     chat_id = message.chat.id
     if not chat_id in pchats:
         pchats.append(chat_id)
-        await message.reply_text("Approoved to PM")
+        await message.reply_text("PM'ye İzin Verildi")
         return
     message.continue_propagation()    
     
@@ -62,6 +62,6 @@ async def rmpmPermiat(client: USER, message: Message):
     chat_id = message.chat.id
     if chat_id in pchats:
         pchats.remove(chat_id)
-        await message.reply_text("Dispprooved to PM")
+        await message.reply_text("PM'ye İzin Verilmiyor")
         return
     message.continue_propagation()
