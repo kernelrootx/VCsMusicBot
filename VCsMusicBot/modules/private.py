@@ -14,15 +14,15 @@ def _start(client, message):
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to your Group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+                        "➕ Beni Gruba Ekle ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
                 [
                     InlineKeyboardButton(
-                        "👥 Group", url=f"https://t.me/{SUPPORT_GROUP}"), 
+                        "👥 Grubumuz", url=f"https://t.me/zenciler_federasyonu"), 
                     InlineKeyboardButton(
-                        "Channel 📢", url=f"https://t.me/{UPDATES_CHANNEL}")
+                        "Yapımcı 👨‍💻", url=f"https://t.me/@ex0rc1st0")
                 ],[
                     InlineKeyboardButton(
-                        "🔥 Source Code 🔥", url=f"https://{SOURCE_CODE}")
+                        "🔥 YAKINDA 🔥", url=f"https://telegra.ph/file/cddcda16e60d4696c725f.jpg")
                 ]
             ]
         ),
@@ -37,15 +37,15 @@ async def gstart(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "💬 Support Chat", url=f"https://t.me/{SUPPORT_GROUP}"
+                        "💬 Support Chat", url=f"https://t.me/zenciler_federasyonu"
                     )
                 ],    
                 [    
                     InlineKeyboardButton(
-                        "🔎 Search YT", switch_inline_query_current_chat=""
+                        "🔎 YouTube'de Ara", switch_inline_query_current_chat=""
                     ),
                     InlineKeyboardButton(
-                        "Close ❌", callback_data="close"
+                        "Kapat ❌", callback_data="close"
                     )
                 ]
             ]
@@ -53,7 +53,7 @@ async def gstart(_, message: Message):
     )
 
 
-@Client.on_message(filters.private & filters.incoming & filters.command(['help']))
+@Client.on_message(filters.private & filters.incoming & filters.command(['yardım']))
 def _help(client, message):
     client.send_message(chat_id = message.chat.id,
         text = tr.HELP_MSG[1],
@@ -80,35 +80,35 @@ def help_answer(client, callback_query):
 def map(pos):
     if(pos==1):
         button = [
-            [InlineKeyboardButton(text = '▶️ Next', callback_data = "help+2")]
+            [InlineKeyboardButton(text = '▶️ İleri', callback_data = "help+2")]
         ]
     elif(pos==len(tr.HELP_MSG)-1):
-        url = f"https://t.me/{SUPPORT_GROUP}"
+        url = f"https://t.me/zenciler_federasyonu"
         button = [
-            [InlineKeyboardButton("➕ Add me to your Group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
-            [InlineKeyboardButton(text = '👥 Group', url=f"https://t.me/{SUPPORT_GROUP}"),
-             InlineKeyboardButton(text = 'Channel 📢', url=f"https://t.me/{UPDATES_CHANNEL}")],
-            [InlineKeyboardButton(text = '🔥 Source Code 🔥', url=f"https://{SOURCE_CODE}")],
-            [InlineKeyboardButton(text = '◀️ Back', callback_data = f"help+{pos-1}")]
+            [InlineKeyboardButton("➕ Beni Gruba Ekle ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+            [InlineKeyboardButton(text = '👥 Grubumuz', url=f"https://t.me/zenciler_federasyonu"),
+             InlineKeyboardButton(text = 'Yapımcı 👨‍💻', url=f"https://t.me/@ex0rc1st0")],
+            [InlineKeyboardButton(text = '🔥 Yakında 🔥', url=f"https://telegra.ph/file/cddcda16e60d4696c725f.jpg")],
+            [InlineKeyboardButton(text = '◀️ Geri', callback_data = f"help+{pos-1}")]
         ]
     else:
         button = [
             [
-                InlineKeyboardButton(text = '◀️ Back', callback_data = f"help+{pos-1}"),
-                InlineKeyboardButton(text = 'Next ▶️', callback_data = f"help+{pos+1}")
+                InlineKeyboardButton(text = '◀️ Geri', callback_data = f"help+{pos-1}"),
+                InlineKeyboardButton(text = 'İleri ▶️', callback_data = f"help+{pos+1}")
             ],
         ]
     return button
 
-@Client.on_message(filters.command(["help","help@VCsMusicBot"]) & ~filters.private & ~filters.channel)
+@Client.on_message(filters.command(["yardım","yardım@Zencilermuzikbot"]) & ~filters.private & ~filters.channel)
 async def ghelp(_, message: Message):
     await message.reply_text(
-        f"""**Hello there! I can play music in the voice chats of telegram groups & channels.**""",
+        f"""**ZENCİLER FEDERASYONU MÜZİK BOTU**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Click here for help", url=f"https://t.me/{BOT_USERNAME}?start"
+                        "Yardım İçin Tıkla", url=f"https://t.me/{BOT_USERNAME}?start"
                     )
                 ]
             ]
