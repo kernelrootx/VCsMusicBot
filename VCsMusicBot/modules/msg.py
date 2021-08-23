@@ -1,105 +1,67 @@
 import os
 from VCsMusicBot.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**Hello 👋 [{}](tg://user?id={})!**\n\n🤖 I am an advanced bot created for playing music in the voice chats of Telegram Groups & Channels.\n\n✅ Hits /help for more info."
+      START_MSG = "**Merhaba 👋 [{}](tg://user?id={})!**\n\n🤖 Zenciler Federasyonu'nun Müzik Botudur.\n\n✅ Kullanım Kılavuzu İçin /yardım yazın."
       HELP_MSG = [
         ".",
 f"""
-**Hello, Welcome to {PROJECT_NAME}
+**Merhaba, Ben {PROJECT_NAME} 
 
-⭕ I can play music in your group's voice chat as well as channel voice chats.
+⭕ Grupların Sesli Sohbetlerinde Müzik Vb. Şeyleri Oynatabilirim.
 
-⭕ Assistant: @{ASSISTANT_NAME}\n\nClick Next ➡️ for instructions.**
+⭕ Assistanım: @{ASSISTANT_NAME}\n\nSonraki Sayfa İçin Tıkla ➡️ **
 """,
 
 f"""
-**Setting up**
+**Ayarlar**
 
-1) Make bot admin (Group and in channel if use cplay)
-2) Start a voice chat
-3) Try /play <song name> for the first time by an admin
- If userbot joined enjoy music, If not add @{ASSISTANT_NAME} to your group and retry.
-
-**For Channel Music Play**
-1) Make me admin of your channel.
-2) Send /userbotjoinchannel in linked group.
-3) Now send commands in linked group.
+1) Beni  Admin Yap.
+2) Sesli Sohbeti Başlat.
+3) /oynat (Şarkı İsmi) Yaz Ve Gönder
+ Asistan Otomatik Olarak Gruba Katılacaktır, Katılmazsa sen @{ASSISTANT_NAME} hesabını ekle ve yeniden dene.
+ 4) Yine olmazsa @{ASSISTANT_NAME} hesabının banlanmadığına emin ol.
+ 5) Bunları Yaptığın Halde Botta Sıkıntı Varsa {SUPPORT_GROUP} 'a Katıl Ve Yardım İste.
 
 **Commands**
 
-**=>> Song Playing 🎧**
+**=>> Şarkı Oynatma 🎧**
 
-- /play <song name>: Select the Given Below Keyboard.
-- /play <yt url>: Play the given YouTube URL.
-- /ytplay: Directly play song via YouTube Music.
-- /dplay: Play song via deezer.
-- /splay: Play song via jio saavn.
+- /oynat <Şarkı İsmi>: İsmini Yazdığın Şarkıyı Ve Türevlerini Bulur, Seçtiğini Oynatır.
+- /oynat <YouTube Linki>: YouTube Linki Üzerinden Oynatır.
+- /ytoynat: YouTube Music Kütüphanesinden Oynatır.
+- /doynat: Deezer Üzerinden Oynatır.
+- /soynat: Jio Saavn Üzerinden Oynatır.
 
-**=>> Playback ⏯**
+**=>> Oynatma Ayarları ⏯**
 
-- /player: Open Settings menu of player.
-- /skip: Skips the current track.
-- /pause: Pause track.
-- /resume: Resumes the paused track.
-- /end: Stops media playback.
-- /current: Shows the current Playing track.
-- /playlist: Shows playlist.
+- /oynatıcı: Oynatıcı Ayarlarını Açar.
+- /atla: Sonraki Parçaya Atlar.
+- /durdur: Oynatmayı Durdurur.
+- /devam: Oynatmayı Devam Ettirir.
+- /bitir: Oynatmayı Bitirir.
+- /mevcutşarkı: Oynatılan Parçayı Gösterir.
+- /oynatmalistesi: Oynatma Listesihi Gösterir.
 
-**Player cmd and all other cmds except /play, /current  and /playlist  are only for admins of the group.**
+**ZENCİLER FEDERASYONU**
 """,
         
-f"""
-**=>> Channel Music Play 👨‍🎤**
-
-**⭕ For linked group admins only:**
-
-- /cplay <song name>: Play song you requested.
-- /cdplay <song name>: Play song you requested via deezer.
-- /csplay <song name>: Play song you requested via jio saavn.
-- /cplaylist: Show now playing list.
-- /cccurrent: Show now playing.
-- /cplayer: Open music player settings panel.
-- /cpause: Pause song play.
-- /cresume: Resume song play.
-- /cskip: Play next song.
-- /cend: Stop music play.
-- /userbotjoinchannel: Invite assistant to your chat.
-
-**Channel is also can be used instead of c** ( /cplay = /channelplay )
-
-**⭕ If you donlt like to play in linked group:**
-
-1) Get your channel ID.
-2) Create a group with tittle: Channel Music: your_channel_id
-3) Add bot as Channel admin with full perms
-4) Add @{ASSISTANT_NAME} to the channel as an admin.
-5) Simply send commands in your group.
-""",
 
 f"""
-**=>> More tools 😬**
+**=>> Extra Ayarlar 😬**
 
-- /musicplayer <on/off> : Enable/Disable Music player
-- /reload: Updates admin info of your group. Try if bot isn't recognize admin
-- /userbotjoin: Invite @{ASSISTANT_NAME} Userbot to your chat
+- /müzikplayer <on/off> : Müzik Botunu Açar Veya Kapatır.
+- /adminreset: Gruptaki Adminleri Yeniden Tanır.
+- /asistanekle: Asistan Hesabını (@{ASSISTANT_NAME}) Gruba Davet Eder.
 """,
 f"""
-**=>> Song/Vid Download 📥**
-- /video [song mame]: Download video song from youtube
-- /song [song name]: Download audio song from youtube
-- /saavn [song name]: Download song from saavn
-- /deezer [song name]: Download song from deezer
+**=>> Şarkı/Video İndirme 📥**
+- /video [Şarkı İsmi]: YouTube'den Video İndirir.
+- /song [Şarkı İsmi]: YouTube'den Şarkı İndirir.
+- /saavn [Şarkı İsmi]: Saavn'dan Şarkı İndirir.
+- /deezer [Şarkı İsmi]: Deezer'dan Şarkı İndirir.
 
-**=>> Search Tools 🔍**
-- /search [song name]: Search youtube for songs
-- /lyrics [song name]: Get song lyrics
+**=>> Arama Komutarı 🔍**
+- /ara [Şarkı İsmi]: YouTube'den Şarkıyı Arar.
+- /şarkısözü [Şarkı İsmi]: Şarkının Sözlerini Getirir.
 """,
-
-f"""
-**=>> Commands for Sudo Users 👮**
- - /userbotleaveall - remove assistant from all chats
- - /broadcast <reply to message> - globally brodcast replied message to all chats
- - /pmpermit [on/off] - enable/disable pmpermit message
-**Sudo Users can execute any command in any groups.**
-"""
       ]
