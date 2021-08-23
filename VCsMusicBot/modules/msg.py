@@ -49,7 +49,7 @@ f"""
 f"""
 **=>> Extra Ayarlar 😬**
 
-- /müzikplayer <açık/kapalı> : Müzik Botunu Açar Veya Kapatır.
+- /müzikoynatıcı <açık/kapalı> : Müzik Botunu Açar Veya Kapatır.
 - /adminreset: Gruptaki Adminleri Yeniden Tanır.
 - /asistanekle: Asistan Hesabını (@{ASSISTANT_NAME}) Gruba Davet Eder.
 """,
